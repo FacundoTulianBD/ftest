@@ -60,7 +60,46 @@ class PriceController extends Controller
 
     public function show(Price $price)
     {
-        return $price;
+        $price = Price::select(
+            'id',
+            'id_tipo',
+            'marca',
+            'modelo',
+            'version',
+            'moneda',
+            '0km',
+            '2023 as a2023',
+            '2022 as a2022',
+            '2021 as a2021',
+            '2020 as a2020',
+            '2019 as a2019',
+            '2018 as a2018',
+            '2017 as a2017',
+            '2016 as a2016',
+            '2015 as a2015',
+            '2014 as a2014',
+            '2013 as a2013',
+            '2012 as a2012',
+            '2011 as a2011',
+            '2010 as a2010',
+            '2009 as a2009',
+            '2008 as a2008',
+            '2007 as a2007',
+            '2006 as a2006',
+            '2005 as a2005',
+            '2004 as a2004',
+            '2003 as a2003',
+            '2002 as a2002',
+            '2001 as a2001',
+            '2000 as a2000',
+            '1999 as a1999',
+            '1998 as a1998',
+            '1997 as a1997',
+            '1996 as a1996',
+            '1995 as a1995'
+        )->find($price->id);
+
+        return response()->json($price);
     }
 
     public function update(Request $request, Price $price)
